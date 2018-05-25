@@ -1,0 +1,49 @@
+$margin-btn: 9px;
+@import "assets/campo-validacao";
+html {
+  background-color: #e9ebee;
+}
+
+.ui-button-text {
+  display: none !important;
+}
+
+button {
+
+  height: 39px;
+
+  div {
+    display: flex;
+    justify-content: center;
+
+    margin-top: -3px;
+    line-height: 2;
+
+    i {
+      margin-right: 3px;
+      margin-top: 2px;
+    }
+  }
+}
+
+.btn-espacamento-direita {
+  margin-right: $margin-btn;
+}
+
+.btn-espacamento-esquerda {
+  margin-left: $margin-btn;
+}
+
+.ui-float-label>label {
+  left: 1em !important;
+}
+
+.alinhar-input-radio {
+  p-radioButton {
+    margin-left: 8px;
+  }
+}
+
+.ui-inputtext.ng-dirty.ng-invalid, p-dropdown.ng-dirty.ng-invalid > .ui-dropdown, p-autocomplete.ng-dirty.ng-invalid > .ui-autocomplete > .ui-inputtext, p-calendar.ng-dirty.ng-invalid > .ui-calendar > .ui-inputtext, p-chips.ng-dirty.ng-invalid > .ui-inputtext, p-inputmask.ng-dirty.ng-invalid > .ui-inputtext, p-checkbox.ng-dirty.ng-invalid .ui-chkbox-box, p-radiobutton.ng-dirty.ng-invalid .ui-radiobutton-box, p-inputswitch.ng-dirty.ng-invalid .ui-inputswitch, p-listbox.ng-dirty.ng-invalid .ui-inputtext, p-multiselect.ng-dirty.ng-invalid > .ui-multiselect, p-spinner.ng-dirty.ng-invalid > .ui-inputtext, p-selectbutton.ng-dirty.ng-invalid .ui-button, p-togglebutton.ng-dirty.ng-invalid .ui-button {
+  border-color: red;
+}

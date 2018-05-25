@@ -1,0 +1,4 @@
+<div class="error-field" *ngIf="error?.required && !isUntouched">O campo é obrigatório</div>
+<div class="error-field" *ngIf="error?.maxlength">O campo deve possuir {{error.maxlength.requiredLength}} caracteres</div>
+<div class="error-field" *ngIf="error?.minlength">O campo deve possuir {{error.minlength.requiredLength}} caracteres</div>
+<div class="error-field" *ngIf="error?.pattern && !error?.maxlength && !error?.minlength">O padrão do campo está inválido</div>

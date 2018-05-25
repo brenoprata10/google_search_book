@@ -1,0 +1,58 @@
+<p-growl [(value)]="msgs"></p-growl>
+<div class="ui-g">
+  <p-card class="ui-g-12" title="Consulta ao Google Books!">
+
+    <br/>
+
+    <form novalidate [formGroup]="formGroup" (submit)="submit()">
+      <div class="ui-g">
+      <span class="ui-float-label ui-g-3" >
+        <input id="isbn-input" autocomplete="false" formControlName="isbn" type="text" class="ui-g-12" size="30" pInputText>
+        <label for="isbn-input">ISBN:</label>
+        <app-mensagem-validacao [error]="formGroup.get('isbn').errors" [isUntouched]="formGroup.get('isbn').untouched"></app-mensagem-validacao>
+      </span>
+
+        <span class="ui-float-label ui-g-3" >
+        <input id="titulo-input" formControlName="titulo" type="text" class="ui-g-12" size="70" pInputText>
+        <label for="titulo-input">Título:</label>
+      </span>
+
+      <span class="ui-float-label ui-g-3" >
+        <input id="autor-input" formControlName="autor" type="text" class="ui-g-12" size="70" pInputText>
+        <label for="autor-input">Autor:</label>
+      </span>
+      </div>
+
+      <div class="ui-g">
+        <div class="ui-g-3">
+          <p-checkbox label="Requisição Google Books"></p-checkbox>
+        </div>
+
+        <div class="ui-g-6 alinhar-input-radio">
+          <p-radioButton [formControl]="formGroup.get('filtroLivroPago')" name="groupname" label="Todos" value="partial" ></p-radioButton>
+          <p-radioButton [formControl]="formGroup.get('filtroLivroPago')" name="groupname" label="Apenas Livros Pagos" value="free-ebooks"></p-radioButton>
+          <p-radioButton [formControl]="formGroup.get('filtroLivroPago')" name="groupname" label="Apenas Livros Gratuitos" value="paid-ebooks"></p-radioButton>
+        </div>
+      </div>
+
+      <br/>
+
+      <div class="ui-g">
+        <button pButton class="ui-g-2 btn-espacamento-esquerda" type="submit">
+          <div><i class="material-icons">search</i>Pesquisar</div>
+        </button>
+
+        <button pButton class="ui-g-1 btn-espacamento-esquerda" type="button" (click)="limparFormulario()">
+          <div><i class="material-icons">close</i>Limpar</div>
+        </button>
+      </div>
+    </form>
+
+    <div *ngFor="let item of resultadoConsulta">
+      {{item.volumeInfo.title}}
+    </div>
+    <button (click)="anterior()">Anterior</button>
+    <button (click)="proximo()">Próximo</button>
+
+  </p-card>
+</div>
