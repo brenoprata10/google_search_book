@@ -10,8 +10,6 @@ import {GoogleBooksService} from "../../services/google-books.service";
 })
 export class ConsultaComponent implements OnInit {
 
-  // key ,AIzaSyCGFKg9B-EhzxKuyUC-xoi2iIVN5sv44_M
-
   formGroup: FormGroup;
   resultadoConsulta: any;
   qtdItensPorPagina = 10;
