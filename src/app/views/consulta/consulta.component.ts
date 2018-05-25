@@ -53,7 +53,6 @@ export class ConsultaComponent implements OnInit {
   consultarGoogleBooks() {
     this.googleBooksService.consultarPorISBN(this.formGroup.value, this.qtdItensPorPagina, this.startIndex)
       .subscribe((resultado: any) => {
-        this.paginaAtual = 1;
         this.resultadoConsulta = resultado.items;
       });
   }
