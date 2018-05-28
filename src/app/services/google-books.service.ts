@@ -8,22 +8,22 @@ export class GoogleBooksService {
 
   consultarPorISBN(formValue: any, qtdItensPagina: number, startIndex: number) {
     let httpParams = new HttpParams();
-    httpParams = httpParams.append('q=', `${this.getISBNParam(formValue.isbn)}${this.getAutorParam(formValue.autor)}${this.getTituloParam(formValue.titulo)}`);
+    httpParams = httpParams.append('q=', `${this.getISBNParam(formValue.isbn)}${this.getAutorParam(formValue.autor)}${this.getTituloParam(formValue.titulo)}`);
     httpParams = httpParams.append('startIndex', startIndex.toString());
     httpParams = httpParams.append('maxResults', qtdItensPagina.toString());
     return this.httpClient.get('https://www.googleapis.com/books/v1/volumes', {params: httpParams});
   }
 
   getISBNParam(isbn: string) {
-    return isbn ? `isbn=${isbn}` : '';
+    return isbn ? `isbn:${isbn}` : '';
   }
 
   getAutorParam(autor: string) {
-    return autor ? `inauthor=${autor.replace(' ', '&nbsp')}` : '';
+    return autor ? `,inauthor:${autor}` : '';
   }
 
   getTituloParam(titulo: string) {
-    return titulo ? `intitle=${titulo}` : '';
+    return titulo ? `,intitle:${titulo}` : '';
   }
 
 }
