@@ -10,8 +10,6 @@ import {GoogleBooksService} from "../../services/google-books.service";
 })
 export class ConsultaComponent implements OnInit {
 
-  // key ,AIzaSyCGFKg9B-EhzxKuyUC-xoi2iIVN5sv44_M
-
   formGroup: FormGroup;
   resultadoConsulta: any;
   qtdItensPorPagina = 10;
@@ -53,7 +51,6 @@ export class ConsultaComponent implements OnInit {
   consultarGoogleBooks() {
     this.googleBooksService.consultarPorISBN(this.formGroup.value, this.qtdItensPorPagina, this.startIndex)
       .subscribe((resultado: any) => {
-        this.paginaAtual = 1;
         this.resultadoConsulta = resultado.items;
       });
   }
